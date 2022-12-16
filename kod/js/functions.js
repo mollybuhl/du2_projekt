@@ -89,7 +89,7 @@ function add_group_toggling (filter_container_dom) {
 
 // VG
 // CODE according to specifications
-function toggle_cities (event) {
+function toggle_cities () {
 
   /*
 
@@ -104,7 +104,30 @@ function toggle_cities (event) {
     NO RETURN VALUE
 
   */
+  
 
+    let first_city = document.querySelector("#country_filter > ul > #country_0 > ul > li");
+    all_cities = document.querySelectorAll(".country .filter_list > li");
+
+    if(first_city.classList.contains("selected")){
+      array_each(all_cities, unselect_all);
+      function unselect_all(element){
+        if(element.classList.contains("selected")){
+          element.classList.remove("selected");
+        }else{
+          return
+        }
+      }
+    }else{
+      array_each(all_cities, select_all);
+      function select_all(element){
+        if(element.classList.contains("selected")){
+          return 
+        }else{
+          element.classList.add("selected")
+        }
+      }
+    }
 }
 
 

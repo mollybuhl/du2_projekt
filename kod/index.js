@@ -36,3 +36,4 @@ update_programmes();
 // VG
 // Add Interaction of button toggle-all-cities
 
+document.querySelector("#country_filter > button").addEventListener("click", toggle_cities);
