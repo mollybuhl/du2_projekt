@@ -19,6 +19,11 @@ function click_filter_element (event) {
 
   */
   
+  const clicked = event.currentTarget;
+  clicked.classList.toggle("selected");
+  
+  update_programmes();
+
 }
 
 
