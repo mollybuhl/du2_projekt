@@ -83,7 +83,33 @@ function add_group_toggling (filter_container_dom) {
     NO RETURN VALUE
 
   */
-  
+
+    let first_element = document.querySelector("#others_filter > .filter_container > ul > li");
+    console.log(first_element);
+    let all_elements = document.querySelectorAll("#others_filter > .filter_container > ul > li")
+
+    if(first_element.classList.contains("selected")){
+      array_each(all_elements, unselect_all);
+      function unselect_all(element){
+        if(element.classList.contains("selected")){
+          element.classList.remove("selected");
+        }else{
+          return
+        }
+      }
+    }else{
+      array_each(all_elements, select_all);
+      function select_all(element){
+        if(element.classList.contains("selected")){
+          return 
+        }else{
+          element.classList.add("selected")
+        }
+      }
+
+      
+}
+update_programmes();
 }
 
 
