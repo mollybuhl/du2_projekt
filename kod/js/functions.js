@@ -135,7 +135,41 @@ function toggle_cities () {
 // ATTENTION: You need to write the specification of all three functions:
 //            create_countries_cities_filters, create_country and create_city
 function create_countries_cities_filters () {
+   /*
+
+    ARGUMENTS
+      This function does not take any arguments
+
+    SIDE EFFECTS
+      This function make sure all country-objects in COUNTRIES is 
+      called as an argument in the function create_country
+
+    NO RETURN VALUE
+
+  */
+
   function create_country (country) {
+ /*
+
+    ARGUMENTS
+      country: object from the array COUNTRIES that contains the following keys,
+      id (number): the country id
+      name (string): the country name
+      imagesNormal (array of strings): country images
+
+    SIDE EFFECTS
+      The function creates a new dom-element with the tag "div" 
+      Gives the new dom-element the class "country" and "filter_container"
+      Changes the new dom-element id to "country" + country.id"
+      Appends the new dom-element to "#country_filter > ul"
+      Sets the html content of the new dom-element to the country name and a ul
+      
+      Make sure all cities in the array CITIES that are in the country are called as an 
+      argument in the function create_city
+
+    NO RETURN VALUE
+
+  */
     const dom = document.createElement("div");
     dom.classList.add("country");
     dom.classList.add("filter_container");
@@ -154,7 +188,26 @@ function create_countries_cities_filters () {
 
     array_each(cities, create_city);
   }
+
   function create_city (city) {
+     /*
+
+    ARGUMENTS
+      city: object from the array cities that contains the following keys
+      id (number): the country id
+      name (string): the country name
+      imagesNormal (array of strings): country images
+
+    SIDE EFFECTS
+      The function creates a new dom-element with the parent "#country_${city.countryID} > ul"
+      Gives the new dom-elenment the class "selected"
+      Sets the text content of the new dom-element to city.name
+      Sets the dataset.id to city.id
+
+
+    NO RETURN VALUE
+
+  */
 
     const dom = create_filter_element({
       parent: document.querySelector(`#country_${city.countryID} > ul`),
