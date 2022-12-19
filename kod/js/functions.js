@@ -299,19 +299,20 @@ function create_programme (programme) {
     <p>${UNIVERSITIES[programme.universityID].name}</p>
     <p>${CITIES[UNIVERSITIES[programme.universityID].cityID].name}, ${COUNTRIES[CITIES[UNIVERSITIES[programme.universityID].cityID].countryID].name} </p>
       <div>
-        <p>${LEVELS[programme.levelID-1].name}</p>
-        <p>${SUBJECTS[programme.subjectID].name}</p>
-        <p>${LANGUAGES[programme.languageID].name}</p>
+        <p>${LEVELS[programme.levelID-1].name}, ${SUBJECTS[programme.subjectID].name}, ${LANGUAGES[programme.languageID].name}</p>
       </div>
   </div>
-  <button class="more_info"> </button>
+  <div class="show_more"><button class="more_info extra_info"> </button></div>
+
   <div class="bottom_programme">
-    <p>${CITIES[UNIVERSITIES[programme.universityID].cityID].name}</p>
-    <p>sun index</p> 
+    <p>${CITIES[UNIVERSITIES[programme.universityID].cityID].name}, sun-index:</p> 
   </div>
   `
   new_element.style.backgroundImage = `url(../media/geo_images/${CITIES[UNIVERSITIES[programme.universityID].cityID].imagesNormal[get_random_number(4)]})`;
+ 
+ 
 }
+
 
 
 
