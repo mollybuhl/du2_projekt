@@ -84,6 +84,33 @@ function add_group_toggling (filter_container_dom) {
 
   */
   
+
+    let first_element = document.querySelector("#others_filter > .filter_container > ul > li");
+    console.log(first_element);
+    let all_elements = document.querySelectorAll("#others_filter > .filter_container > ul > li")
+
+    if(first_element.classList.contains("selected")){
+      array_each(all_elements, unselect_all);
+      function unselect_all(element){
+        if(element.classList.contains("selected")){
+          element.classList.remove("selected");
+        }else{
+          return
+        }
+      }
+    }else{
+      array_each(all_elements, select_all);
+      function select_all(element){
+        if(element.classList.contains("selected")){
+          return 
+        }else{
+          element.classList.add("selected")
+        }
+      }
+
+      
+}
+update_programmes();
 }
 
 
@@ -324,6 +351,7 @@ function create_programme (programme) {
     <p>${CITIES[UNIVERSITIES[programme.universityID].cityID].name}, sun-index:</p> 
   </div>
   `
+
   new_element.style.backgroundImage = `url(../media/geo_images/${CITIES[UNIVERSITIES[programme.universityID].cityID].imagesNormal[get_random_number(4)]})`;
 
   let button = new_element.querySelector(".more_info");
