@@ -114,6 +114,7 @@ function toggle_cities () {
       function unselect_all(element){
         if(element.classList.contains("selected")){
           element.classList.remove("selected");
+          update_programmes();
         }else{
           return
         }
@@ -124,7 +125,8 @@ function toggle_cities () {
         if(element.classList.contains("selected")){
           return 
         }else{
-          element.classList.add("selected")
+          element.classList.add("selected");
+          update_programmes();
         }
       }
     }
@@ -350,6 +352,20 @@ function update_programmes () {
       NO RETURN VALUE
 
   */
+  const program_box = document.querySelector("#programmes > ul"); 
+  program_box.innerHTML = ``;   
+
+  let programmes = read_filters();
+  array_each(programmes, create_programme);
+
+  const header = document.querySelectorAll("#top_images > div");
+  array_each(header, change_image);
+  function change_image(div){
+    let country = COUNTRIES[get_random_number(COUNTRIES.length-1,0)];
+    let image_number = country.imagesNormal.length - 1;
+
+    div.style.backgroundImage = `url(../media/geo_images/${country.imagesNormal[get_random_number(image_number,1)]})`
+  }
 
 }
 

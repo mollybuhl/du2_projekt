@@ -12,9 +12,6 @@
 
 */
 
-array_each(PROGRAMMES, create_programme);
-
-
 
 // Create Filter Elements
 create_levels_filter();
