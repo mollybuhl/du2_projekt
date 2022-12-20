@@ -362,7 +362,19 @@ function update_programmes () {
 // Optional VG: Which parts of the function's code could be abstracted?
 //              Implement it
 function read_filters () {
-  
+   /*
+
+    ARGUMENT
+     This function does not take any arguments
+
+    SIDE-EFFECTS
+      This function creates an array "programmes" that includes all programmes
+      from PROGRAMMES which includes the selected city, level, subject and
+      any possible value in the search-field.
+
+    Return programmes
+
+  */  
   const city_selected_dom = document.querySelectorAll("#country_filter li.selected");
 
   const city_id_selected = [];
