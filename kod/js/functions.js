@@ -287,6 +287,14 @@ function create_programme (programme) {
     NO RETURN VALUE
 
   */  
+ 
+  function calculate_avarage(array){
+    let sum = 0;
+    for (let i = 0; i < array.length; i++) {
+        sum = sum + array[i];
+      }
+    return sum/array.length;
+ }
 
   const new_element = document.createElement("div");
   const parent = document.querySelector("#programmes > ul");
@@ -302,19 +310,28 @@ function create_programme (programme) {
         <p>${LEVELS[programme.levelID-1].name}, ${SUBJECTS[programme.subjectID].name}, ${LANGUAGES[programme.languageID].name}</p>
       </div>
   </div>
-  <div class="show_more"><button class="more_info extra_info"> </button></div>
+    <div class="more_info">
+      <div class="extra_info">
+        <p>Avarage entery grade: ${Number(calculate_avarage(programme.entryGrades).toFixed(2))}</p>
+        <p>Success rate: ${Number(calculate_avarage(programme.successRate).toFixed(1))}%</p>
+        <p>Exchange ratio: ${programme.exchangeStudents}/${programme.localStudents}</p>
+        </div>
+    </div>
 
   <div class="bottom_programme">
     <p>${CITIES[UNIVERSITIES[programme.universityID].cityID].name}, sun-index:</p> 
   </div>
   `
   new_element.style.backgroundImage = `url(../media/geo_images/${CITIES[UNIVERSITIES[programme.universityID].cityID].imagesNormal[get_random_number(4)]})`;
- 
- 
+
+  let button = new_element.querySelector(".more_info");
+  button.addEventListener("click", display_more);
+
+  function display_more(object){
+    new_element.classList.toggle("show_more");
+  }
+
 }
-
-
-
 
 // G
 // CODE according to the specification
