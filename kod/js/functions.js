@@ -18,7 +18,7 @@ function click_filter_element (event) {
     NO RETURN VALUE
 
   */
-  
+  event.stopPropagation();
   const clicked = event.currentTarget;
   clicked.classList.toggle("selected");
   
@@ -84,33 +84,41 @@ function add_group_toggling (filter_container_dom) {
 
   */
   
+ const first_list_element = filter_container_dom.querySelector("li");
+ const all_list_elements = filter_container_dom.querySelectorAll("li");
+ const parent = filter_container_dom.parentNode;
 
-    let first_element = document.querySelector("#others_filter > .filter_container > ul > li");
-    console.log(first_element);
-    let all_elements = document.querySelectorAll("#others_filter > .filter_container > ul > li")
+ parent.addEventListener("click", toggle_selected_unselected)
 
-    if(first_element.classList.contains("selected")){
-      array_each(all_elements, unselect_all);
-      function unselect_all(element){
-        if(element.classList.contains("selected")){
-          element.classList.remove("selected");
-        }else{
-          return
-        }
-      }
-    }else{
-      array_each(all_elements, select_all);
-      function select_all(element){
-        if(element.classList.contains("selected")){
-          return 
-        }else{
-          element.classList.add("selected")
-        }
-      }
-
-      
+function toggle_selected_unselected(event){
+  event.stopPropagation();
+  if(first_list_element.classList.contains("selected")){
+    array_each(all_list_elements, unselect_all);
+    update_programmes();
+   }else{
+    array_each(all_list_elements, select_all)
+   }
 }
-update_programmes();
+
+function unselect_all(element){
+  if(element.classList.contains("selected")){
+    element.classList.remove("selected");
+    update_programmes();
+  }else{
+    return;
+  }
+}
+
+function select_all(element){
+  if(element.classList.contains("selected")){
+    return;
+  }else{
+    element.classList.add("selected");
+    update_programmes();
+  }
+}
+
+
 }
 
 
