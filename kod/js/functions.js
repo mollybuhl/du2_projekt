@@ -227,7 +227,7 @@ function create_countries_cities_filters () {
   }
 
   function create_city (city) {
-     /*
+    /*
 
     ARGUMENTS
       city: object from the array cities that contains the following keys
@@ -331,7 +331,7 @@ function create_programme (programme) {
         sum = sum + array[i];
       }
     return sum/array.length;
- }
+  }
 
   const new_element = document.createElement("div");
   const parent = document.querySelector("#programmes > ul");
@@ -356,7 +356,7 @@ function create_programme (programme) {
     </div>
 
   <div class="bottom_programme">
-    <p>${CITIES[UNIVERSITIES[programme.universityID].cityID].name}, sun-index:</p> 
+    <p>${CITIES[UNIVERSITIES[programme.universityID].cityID].name}, sun-index: ${CITIES[UNIVERSITIES[programme.universityID].cityID].sun} (${percenter(CITIES[UNIVERSITIES[programme.universityID].cityID].sun, 365)})%</p> 
   </div>
   `
 
