@@ -359,8 +359,9 @@ function create_programme (programme) {
     <p>${CITIES[UNIVERSITIES[programme.universityID].cityID].name}, sun-index: ${CITIES[UNIVERSITIES[programme.universityID].cityID].sun} (${percenter(CITIES[UNIVERSITIES[programme.universityID].cityID].sun, 365)})%</p> 
   </div>
   `
-
-  new_element.style.backgroundImage = `url(../media/geo_images/${CITIES[UNIVERSITIES[programme.universityID].cityID].imagesNormal[get_random_number(4)]})`;
+  let city = CITIES[UNIVERSITIES[programme.universityID].cityID];
+  let number = city.imagesNormal.length - 1;
+  new_element.style.backgroundImage = `url(../media/geo_images/${city.imagesNormal[get_random_number(number, 0)]})`;
 
   let button = new_element.querySelector(".more_info");
   button.addEventListener("click", display_more);
