@@ -266,6 +266,23 @@ function create_countries_cities_filters () {
 
 function create_filter(){
 
+   /*
+
+    ARGUMENTS
+     This function does not take any arguments 
+
+    SIDE EFFECTS
+      This function creates a new list element for each level in LEVELS,
+      subject in SUBJECT and language in LANGUAGES.
+      Places the list element in the correct filter ul.
+      Sets the class for each list element to "selected".
+      Sets the text content to the name of the level, subject or language.
+
+
+    NO RETURN VALUE
+
+  */
+
   let parent = "level";
   array_each(LEVELS,filter);
   parent = "subject";
