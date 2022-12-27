@@ -402,7 +402,7 @@ function create_programme (programme) {
   </div>
   `
   let city = CITIES[UNIVERSITIES[programme.universityID].cityID];
-  let number = city.imagesNormal.length - 1;
+  let number = city.imagesNormal.length;
   new_element.style.backgroundImage = `url(../media/geo_images/${city.imagesNormal[get_random_number(number, 0)]})`;
 
   let button = new_element.querySelector(".more_info");
